@@ -1,0 +1,5 @@
+<%= form_for @songs do |f| %>
+  <%= render "shared/errors", object: @songs %>
+  <%= f.text_field :field_1, class: "form-control" %>
+  <%= f.submit %>
+<% end %>

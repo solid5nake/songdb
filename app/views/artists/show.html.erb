@@ -1,2 +1,24 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<div class="container-fluid">
+  <h2>Profile: <%= @artist.name %></h2>
+
+  <%= render 'songs/index' %>
+
+  <div class="">
+    <button type="button" class="artists-btn btn btn-default">
+      <i class="glyphicon glyphicon-th"></i><%= link_to " Back to Index", artists_path %>
+    </button>
+
+    <button type="button" class="artists-btn btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i><%= link_to " Edit artist", edit_artist_path(@artist) %>
+    </button>
+
+    <button type="button" name="button" class="btn btn-default">
+      <i class="glyphicon glyphicon-plus"></i><%= link_to ' Add song', new_song_path %>
+    </button>
+
+    <button type="button" name="button" class="btn btn-default">
+      <i class="glyphicon glyphicon-trash"></i><%= link_to ' Cleanup songs', new_song_path %>
+    </button>
+
+  </div>
+</div>
