@@ -1,9 +1,7 @@
 class SongsController < ApplicationController
-  before_action :set_artist, only: [:create, :new, :update, :destroy]
-
+  before_action :set_artist, only: [:index, :create, :new, :update, :destroy]
 
   def index
-    @songs = Song.all
   end
 
   def new
@@ -14,6 +12,7 @@ class SongsController < ApplicationController
   end
 
   def destroy
+    @artist.songs.find(params[:id]).destroy
   end
 
 private
