@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Uses Bootstrap's modals in place of the browser's builtin confirm() which is just ugly
+  gem 'data-confirm-modal'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
