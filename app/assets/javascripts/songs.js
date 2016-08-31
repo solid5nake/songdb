@@ -17,7 +17,23 @@ $(function() {
     });
   });
 
-  $('body').on('click', 'a.cleanup_songs', function(event) {
+  $('body').on('click', 'a.increment', function(event) {
+  event.preventDefault();
+  var element = $(event.target).closest('li');
+
+  $.ajax({
+    type: 'GET',
+    url: '/order_items/' + element.data('id'),
+    dataType: 'script',
+    data: {
+      order_item: {
+        quantity: parseInt(element.data('quantity')) + 1
+      }
+    }
+  });
+});
+
+  $('body').on('click', 'a.remove_song', function(event) {
     event.preventDefault();
 
     var song_id = $(event.target).closest('[data-id]').data('id'),
