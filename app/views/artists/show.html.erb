@@ -1,5 +1,6 @@
 <div class="container-fluid">
   <h2>Profile: <%= @artist.name %></h2>
+  <%= image_tag(@artist.image.thumbnail) %>
 
   <%= render 'songs/index' %>
 
@@ -13,12 +14,10 @@
     </button>
 
     <button type="button" name="button" class="btn btn-default">
-      <i class="glyphicon glyphicon-plus"></i><%= link_to ' Add song', new_song_path %>
+      <i class="glyphicon glyphicon-plus"></i><%= link_to "Add song", new_song_path %>
     </button>
 
-    <button type="button" name="button" class="btn btn-default">
-      <i class="glyphicon glyphicon-trash"></i><%= link_to ' Cleanup songs', new_song_path %>
-    </button>
+    <i class="glyphicon glyphicon-trash"></i><%= link_to " Cleanup songs", "#", {class: "cleanup_songs btn btn-default"} %>
 
   </div>
 </div>
