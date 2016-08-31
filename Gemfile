@@ -27,15 +27,24 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Uses Bootstrap's modals in place of the browser's builtin confirm() which is just ugly
+  gem 'data-confirm-modal'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # gem 'rails_12factor' for deployment
 gem 'rails_12factor', group: :production
 
+gem 'carrierwave'
+
+gem 'cloudinary'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # Call 'binding.pry' anywhere in the code to stop exection and get a debugger console
+  gem 'pry'
 end
 
 group :development do

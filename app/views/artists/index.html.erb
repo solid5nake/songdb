@@ -1,0 +1,20 @@
+<div class="index-container container-fluid col-md-12">
+  <h1>SongDB</h1>
+  <% @artists.each do |artist| %>
+  <div class="artist jumbotron">
+
+    <h2><%= artist.name %></h2>
+
+    <div class="img-index">
+      <%= image_tag artist.image %>
+    </div>
+
+    <div class="button">
+      <button type="button" class="artist-btn btn btn-default">
+        <i class="glyphicon glyphicon-eye-open"></i><%= link_to " Show artist", artist_path(artist) %>
+      </button>
+    </div>
+
+  </div>
+  <% end %>
+</div>

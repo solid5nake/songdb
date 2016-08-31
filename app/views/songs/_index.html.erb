@@ -1,0 +1,32 @@
+<div id="songs-index">
+  <%
+    options = [
+      ["(title A-Z)", "title asc"],
+      ["(title Z-A)", "title desc"],
+      ["(created at -  newest to old)", "(created_at asc"],
+      ["(created at - oldest to new)", "created_at desc"]
+    ]
+  %>
+
+  <%= form_tag songs_path, method: :get, class: "navbar-form navbar-left search-form", remote: true do %>
+    <%= hidden_field_tag("artist_id", @artist.id) %>
+    <%= select_tag "order_by",
+          options_for_select(options),
+          :prompt => "Select name sorting", :onchange => "$(this).closest('form').submit()"
+    %>
+  <% end %>
+
+  <%= form_tag songs_path, method: :post, class: "navbar-form navbar-left add-song", remote: true do %>
+    <%= hidden_field_tag("artist_id", @artist.id) %>
+    <%= text_field_tag :name, params[:name] %>
+
+    <%= submit_tag "Add", remote: true, :onsubmit => "$(this).closest('form').submit()" %>
+  <% end %>
+
+  <% @artist.songs.order(params["order_by"] || "title").each do |song| %>
+    <div class="song jumbotron" data-id="<%= song.id %>" data-artist_id="<%= song.artist_id %>">
+      <p><%= song.title %></p>
+      <%= link_to 'Remove song', '#', {class: "remove_song btn btn-default"}%>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <h2>Profile: <%= @artist.name %></h2>
+  <%= image_tag(@artist.image.thumbnail) %>
+
+  <%= render 'songs/index' %>
+
+  <div class="">
+    <button type="button" class="artists-btn btn btn-default">
+      <i class="glyphicon glyphicon-th"></i><%= link_to " Back to Index", artists_path %>
+    </button>
+
+    <button type="button" class="artists-btn btn btn-default">
+      <i class="glyphicon glyphicon-edit"></i><%= link_to " Edit artist", edit_artist_path(@artist) %>
+    </button>
+
+  </div>
+</div>
