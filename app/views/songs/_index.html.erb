@@ -16,11 +16,11 @@
     %>
   <% end %>
 
-
   <%= form_tag songs_path, method: :post, class: "navbar-form navbar-left add-song", remote: true do %>
     <%= hidden_field_tag("artist_id", @artist.id) %>
-    <%= text_field_tag "add_song"
-    %>
+    <%= text_field_tag :name, params[:name] %>
+
+    <%= submit_tag "Add", remote: true, :onsubmit => "$(this).closest('form').submit()" %>
   <% end %>
 
   <% @artist.songs.order(params["order_by"] || "title").each do |song| %>
