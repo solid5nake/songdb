@@ -1,0 +1,18 @@
+<%= form_for(@artist) do |f| %>
+  <div class="jumbotron">
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <!-- <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div> -->
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  </div>
+<% end %>

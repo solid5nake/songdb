@@ -1,2 +1,7 @@
-<h1>Artists#edit</h1>
-<p>Find me in app/views/artists/edit.html.erb</p>
+<h1>Edit <%= @artist.name %></h1>
+
+<%= render 'form' %>
+
+<button type="button" name="button" class="btn btn-default">
+  <i class="glyphicon glyphicon-chevron-left"></i><%= link_to ' Back to Show', artist_path(@artist) %>
+</button>

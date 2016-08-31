@@ -2,7 +2,9 @@
   <% @artist.songs.each do |song| %>
     <div class="jumbotron">
       <p><%= song.title %></p>
-      <button type="button" name="remove-song" class="remove-artist btn btn-default" ><%= link_to 'Remove song', '#' %></button>
+      <button type="button" name="remove-song" class="remove-artist btn btn-default" >
+        <%= link_to 'Remove song', '#' %>
+      </button>
     </div>
   <% end %>
 </div>
