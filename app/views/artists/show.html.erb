@@ -4,7 +4,7 @@
 
   <%= render 'songs/index' %>
 
-  <div class="">
+  <div class="artist-btn-group">
     <button type="button" class="artists-btn btn btn-default">
       <i class="glyphicon glyphicon-th"></i><%= link_to " Back to Index", artists_path %>
     </button>
@@ -13,5 +13,13 @@
       <i class="glyphicon glyphicon-edit"></i><%= link_to " Edit artist", edit_artist_path(@artist) %>
     </button>
 
+    <%= form_tag cleanup_songs_path, method: :delete, remote: true, style: "display: inline" do %>
+      <%= hidden_field_tag("artist_id", @artist.id) %>
+      <button type="button" class="artists-btn btn btn-default">
+        <i class="glyphicon glyphicon-trash"></i>
+        <%= link_to 'cleanup', '#', :onclick => "$(this).closest('form').submit()" %>
+      </button>
+      <%=  %>
+    <% end %>
   </div>
 </div>

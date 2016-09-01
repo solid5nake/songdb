@@ -12,15 +12,14 @@
     <%= hidden_field_tag("artist_id", @artist.id) %>
     <%= select_tag "order_by",
           options_for_select(options),
-          :prompt => "Select name sorting", :onchange => "$(this).closest('form').submit()"
+          :prompt => "Sort page results", :onchange => "$(this).closest('form').submit()"
     %>
   <% end %>
 
   <%= form_tag songs_path, method: :post, class: "navbar-form navbar-left add-song", remote: true do %>
     <%= hidden_field_tag("artist_id", @artist.id) %>
-    <%= text_field_tag :name, params[:name] %>
-
-    <%= submit_tag "Add", remote: true, :onsubmit => "$(this).closest('form').submit()" %>
+    <%= text_field_tag "song[title]" %>
+    <%= submit_tag "Add" %>
   <% end %>
 
   <% @artist.songs.order(params["order_by"] || "title").each do |song| %>
