@@ -8,7 +8,7 @@
     ]
   %>
 
-  <%= form_tag songs_path, method: :get, class: "navbar-form navbar-left search-form", remote: true do %>
+  <%= form_tag songs_path, method: :get, class: "search-form navbar-form navbar-left", remote: true do %>
     <%= hidden_field_tag("artist_id", @artist.id) %>
     <%= select_tag "order_by",
           options_for_select(options),
@@ -16,7 +16,7 @@
     %>
   <% end %>
 
-  <%= form_tag songs_path, method: :post, class: "navbar-form navbar-left add-song", remote: true do %>
+  <%= form_tag songs_path, method: :post, class: "add-song navbar-form navbar-left", remote: true do %>
     <%= hidden_field_tag("artist_id", @artist.id) %>
     <%= text_field_tag "song[title]" %>
     <%= submit_tag "Add" %>
