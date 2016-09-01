@@ -45,6 +45,14 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # Call 'binding.pry' anywhere in the code to stop exection and get a debugger console
   gem 'pry'
+
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+end
+
+group :test do
+  gem 'database_cleaner'
 end
 
 group :development do
